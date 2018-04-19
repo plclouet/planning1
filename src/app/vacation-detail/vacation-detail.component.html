@@ -1,0 +1,29 @@
+<div *ngIf="vacation">
+
+
+  <h2> Details de la vacation du {{vacation.date | uppercase}}</h2>
+  
+  <div>
+    
+
+
+
+      
+      <div><span>id: </span>{{vacation.id}}</div>
+      <div>
+        <label>date:</label><span>{{vacation.date}}</span> <br>
+        <label>plage:</label><span>{{vacation.plage}}</span> <br>
+        <label>modalité:</label><span>{{vacation.modalite}}</span> <br>
+        <label>lieu:</label><span>{{vacation.lieu}}</span> <br>
+        <label>radiologue:
+          <input [(ngModel)]="vacation.radiologue" placeholder="names">
+        </label>
+      </div>
+    
+
+
+
+
+  </div>
+
+</div>

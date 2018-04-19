@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Vacation } from '../vacation.model'
+
+import { Vacation } from '../vacation.model';
+
+import { VacationService } from '../vacation.service';
 
 @Component({
   selector: 'app-semaine',
@@ -7,18 +10,29 @@ import { Vacation } from '../vacation.model'
   styleUrls: ['./semaine.component.css']
 })
 export class SemaineComponent implements OnInit {
-  vacation: Vacation = {
 
-    id: 1,
-    date: '15/04',
-    plage: 'matin',
-    modalite: 'scanner',
-    lieu: 'cmc'
-  };
+    selectedVacation: Vacation;
 
-  constructor() { }
+    vacations: Vacation[];
+
+
+   
+
+  constructor(private vacationService: VacationService) { }
 
   ngOnInit() {
+
+    this.getVacations();
   }
+
+  onSelect(vacation: Vacation): void {
+    this.selectedVacation = vacation;
+  }
+
+  getVacations(): void {
+      this.vacationService.getVacations()
+        .subscribe(vacations => this.vacations = vacations)
+    }
+
 
 }

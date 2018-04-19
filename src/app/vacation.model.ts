@@ -4,4 +4,5 @@ export class Vacation {
     plage: string;
     modalite: string;
     lieu: string;
+    radiologue: string;
   }

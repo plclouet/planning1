@@ -1,6 +1,30 @@
-<h2>Details</h2>
-<div><span>id: </span>{{vacation.id}}</div>
-<div><span>date: </span>{{vacation.date}}</div>
-<div><span>demi-journée: </span>{{vacation.plage}}</div>
-<div><span>modalité: </span>{{vacation.modalite}}</div>
-<div><span>lieu: </span>{{vacation.lieu}}</div>
+
+
+
+<h2>Planning de la semaine</h2>
+<ul class="vacations">
+  <li *ngFor="let vacation of vacations"
+    [class.selected]="vacation === selectedVacation"
+    (click)="onSelect(vacation)">
+    <span>{{vacation.date}}</span> {{vacation.radiologue}}
+  </li>
+</ul>
+
+<app-vacation-detail [vacation]="selectedVacation"></app-vacation-detail>
+
+
+<!-- <div *ngIf="selectedVacation">
+
+  <h2> Details de la vacation du {{selectedVacation.date}}</h2>
+  <div><span>id: </span>{{selectedVacation.id}}</div>
+  <div>
+    <label>date:</label><span>{{selectedVacation.date}}</span> <br>
+    <label>plage:</label><span>{{selectedVacation.plage}}</span> <br>
+    <label>modalité:</label><span>{{selectedVacation.modalite}}</span> <br>
+    <label>lieu:</label><span>{{selectedVacation.lieu}}</span> <br>
+    <label>name:
+      <input [(ngModel)]="selectedVacation.radiologue" placeholder="name">
+    </label>
+  </div>
+
+</div> -->
